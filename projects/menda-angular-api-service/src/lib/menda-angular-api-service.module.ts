@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { MendaAngularApiServiceComponent } from './menda-angular-api-service.component';
+import {HttpClientModule} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
-  ],
-  declarations: [MendaAngularApiServiceComponent],
-  exports: [MendaAngularApiServiceComponent]
+    CommonModule,
+    HttpClientModule],
+  declarations: [],
+  exports: []
 })
 export class MendaAngularApiServiceModule { }
