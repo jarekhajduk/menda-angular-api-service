@@ -148,7 +148,7 @@
       "root": "projects/menda-angular-api-service",
       "sourceRoot": "projects/menda-angular-api-service/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "menda",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
