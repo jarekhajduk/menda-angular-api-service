@@ -1,13 +1,13 @@
 # Angular API Service
 
-Do you hate the spaghetti code when comunicating with REST API? Here's my simple solution. It allows you to comunicate with API in this way:
+Do you hate the spaghetti code when communicating with REST API? Here's my simple solution. It allows you to communicate with API in this way:
 ```ts
 // get all the movies
 this.api.run(GET_MOVIES_API_ACTION, { page: 1 }).subscribe(movies => {
   console.log(movies);
 });
 
-// create new movie
+// create a new movie
 this.api.runWith({title: 'Title'}, ADD_MOVIE_API_ACTION).subscribe(newMovie => {
   console.log(newMovie);
 }, validation => {
@@ -40,8 +40,8 @@ yarn add menda-angular-api-service
 ### 1. Configure module
 
 - import `HttpClientModule`
-- provide API_URL
-- provide ApiService
+- provide `API_URL`
+- provide `ApiService`
 
 ```ts
 [app.module.ts]
@@ -110,8 +110,9 @@ run(action: ApiAction, params?: any): Observable<any>
 this method has sense only with POST and PUT ApiActions.
 "data" is the data, that you want to POST/PUT.
 
-If you need to alter the request before sending it (for instance you want to send a file) you can use requestParser or angular interceptor
-For example look on the end of the documentation
+If you need to alter the request before sending it
+(for instance you want to send a file) you can
+use requestParser or angular interceptor
 */
 runWith(data: any, action: ApiAction, params: any = {}): Observable<any>
 ```
@@ -139,7 +140,7 @@ Component {
       console.log(movies);
     });
     
-    // creates new movie
+    // creates a new movie
     this.api.runWith({title: 'Title'}, ADD_MOVIE_API_ACTION).subscribe(newMovie => {
       console.log(newMovie);
     });
@@ -157,10 +158,10 @@ Component {
 
 If you need to change something in the request before sending it, or the response before returning it you can:
 
-- configure parser in ApiAction
-- use angular interceptor
+- configure parser in `ApiAction`
+- use angular built-in interceptors
 
-The first solution may look like this (sending file):
+The first solution may look like this (sending multipart data):
 
 ```ts
 import { ApiAction } from 'menda-angular-api-service';
