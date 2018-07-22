@@ -12,7 +12,7 @@ The service can:
 
 To use all the features, firstly you must configure an endpoint by creating an object, which fulfills this interface:
 
-```
+```ts
 interface ApiAction {
     method: string;
     url: string;
@@ -30,14 +30,15 @@ interface ApiAction {
 Then import the service to the module and setup it in providers (don't forget to setup API_URL)
 
 After that you can inject the service and use one of its two methods:
-```
+
+```ts
 run(action: ApiAction, params?: any): Observable<any>
 runWith(data: any, action: ApiAction, params: any = {}): Observable<any>
 ```
 
 Full usage example:
 
-```
+```ts
 [app.module.ts]
 
 import { API_URL } from 'menda-angular-api-service';
@@ -60,7 +61,7 @@ export class AppMOdule {
 ```
 
 
-```
+```ts
 [api-actions.ts]
 
 import { ApiAction } from 'menda-angular-api-service';
