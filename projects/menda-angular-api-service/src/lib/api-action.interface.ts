@@ -7,5 +7,5 @@ export interface ApiAction {
 
     parseErrorResponse?(response: any): any;
 
-    parseRequest?(response: any): any;
+    parseRequest?(request: any): any;
 }

@@ -22,7 +22,7 @@ interface ApiAction {
 
     parseErrorResponse?(response: any): any;
 
-    parseRequest?(response: any): any;
+    parseRequest?(request: any): any;
 }
 
 ```
@@ -54,7 +54,7 @@ import { ApiService } from 'menda-angular-api-service';
     ],
     bootstrap: [],
 })
-export class AppMOdule {
+export class AppModule {
 }
 
 
@@ -91,6 +91,7 @@ import {
   ADD_MOVIE_API_ACTION,
   REMOVE_MOVIE_API_ACTION
 } from './api-actions';
+import { ApiService } from 'menda-angular-api-service';
 
 @Component()
 Component {
