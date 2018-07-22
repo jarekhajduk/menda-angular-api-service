@@ -15,6 +15,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "MendaAngularApiService": [
+        "dist/menda-angular-api-service"
+      ],
+      "MendaAngularApiService/*": [
+        "dist/menda-angular-api-service/*"
+      ]
+    }
   }
 }

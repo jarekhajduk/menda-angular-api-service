@@ -143,6 +143,46 @@
           }
         }
       }
+    },
+    "MendaAngularApiService": {
+      "root": "projects/menda-angular-api-service",
+      "sourceRoot": "projects/menda-angular-api-service/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/menda-angular-api-service/tsconfig.lib.json",
+            "project": "projects/menda-angular-api-service/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/menda-angular-api-service/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/menda-angular-api-service/src/test.ts",
+            "tsConfig": "projects/menda-angular-api-service/tsconfig.spec.json",
+            "karmaConfig": "projects/menda-angular-api-service/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/menda-angular-api-service/tsconfig.lib.json",
+              "projects/menda-angular-api-service/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "menda-library"
