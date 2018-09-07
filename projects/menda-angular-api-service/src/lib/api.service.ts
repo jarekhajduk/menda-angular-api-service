@@ -42,7 +42,11 @@ export class ApiService {
             data = action.parseRequest(data);
         }
 
-        const headers = new HttpHeaders();
+        let headers = new HttpHeaders();
+
+        if (data instanceof FormData) {
+            headers = new HttpHeaders({});
+        }
 
         switch (action.method) {
             case 'POST':
