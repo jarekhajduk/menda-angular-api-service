@@ -1,3 +1,5 @@
+import {HttpHeaders} from '@angular/common/http';
+
 export interface ApiAction {
     method: string;
     url: string;
@@ -8,4 +10,6 @@ export interface ApiAction {
     parseErrorResponse?(response: any): any;
 
     parseRequest?(request: any): any;
+
+    parseHeaders?(headers: HttpHeaders, data: any, params: any): any;
 }

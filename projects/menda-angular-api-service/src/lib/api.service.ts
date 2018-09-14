@@ -1,10 +1,10 @@
-import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {Inject, Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
-import { ApiAction } from './api-action.interface';
-import { API_URL } from './api.constant';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import {ApiAction} from './api-action.interface';
+import {API_URL} from './api.constant';
+import {Observable, throwError} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +48,10 @@ export class ApiService {
             headers = new HttpHeaders({});
         }
 
+        if (action.parseHeaders) {
+            headers = action.parseHeaders(headers, data, params);
+        }
+
         switch (action.method) {
             case 'POST':
                 request = this.httpClient.post(this.apiUrl + action.url, data, {
@@ -77,6 +81,12 @@ export class ApiService {
             case 'DELETE':
                 request = this.httpClient.delete(this.apiUrl + action.url, {
                     params: this.createHttpParams(params),
+                });
+                break;
+            case 'LINK':
+                request = this.httpClient.request('LINK', this.apiUrl + action.url, {
+                    params: this.createHttpParams(params),
+                    headers: headers,
                 });
                 break;
         }
