@@ -85,6 +85,14 @@ export class ApiService {
                 break;
             case 'LINK':
                 request = this.httpClient.request('LINK', this.apiUrl + action.url, {
+                    body: data,
+                    params: this.createHttpParams(params),
+                    headers: headers,
+                });
+                break;
+            case 'UNLINK':
+                request = this.httpClient.request('UNLINK', this.apiUrl + action.url, {
+                    body: data,
                     params: this.createHttpParams(params),
                     headers: headers,
                 });

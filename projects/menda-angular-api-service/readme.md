@@ -29,7 +29,7 @@ yarn add menda-angular-api-service
 
 ## The service can:
 
-- handle GET/PUT/POST/DELETE/PATCH requests
+- handle GET/PUT/POST/DELETE/PATCH/LINK/UNLINK requests
 - handle url params interpolation
 - use custom request parser before sending the request
 - use custom response parser before returning the response
@@ -73,6 +73,7 @@ interface ApiAction {
     parseResponse?(response: any): any;
     parseErrorResponse?(response: any): any;
     parseRequest?(request: any): any;
+    parseHeaders?(headers: HttpHeaders, data: any, params: any): HttpHeaders;
 }
 
 ```

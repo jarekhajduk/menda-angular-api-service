@@ -11,5 +11,5 @@ export interface ApiAction {
 
     parseRequest?(request: any): any;
 
-    parseHeaders?(headers: HttpHeaders, data: any, params: any): any;
+    parseHeaders?(headers: HttpHeaders, data: any, params: any): HttpHeaders;
 }
